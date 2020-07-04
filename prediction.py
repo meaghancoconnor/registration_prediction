@@ -27,12 +27,12 @@ with open(file) as activecsv:
     for row in reader:
         if row[0] in active_list:
             if (row[3] in ['A','B+','B','C+','C','IP'] and 
-                row[2] not in d[(row[0],row[1],row[4])]):  
+                row[2] not in d[(row[0],row[1])]):  
                     d[(row[0],row[1],row[4])].append(row[2])
 
 
 for s in d:
-    stem = "{};{};{};{};".format(s[0],s[1],s[2],d[s])
+    stem = "{};{};{};".format(s[0],s[1],d[s])
     if len(d[s])>0:
         if len(d[s])>=4:
             if 'ARCH564' in d[s] or 'ARCH506G' in d[s]:
